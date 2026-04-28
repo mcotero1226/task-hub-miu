@@ -1,4 +1,4 @@
-import { Modal, Box, Button, TextField, MenuItem } from "@mui/material";
+import { Modal, Box, Button, TextField, MenuItem, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { usePostTasks } from "../hooks/useposttasks";
 
@@ -11,7 +11,7 @@ type ModalType = {
 }
 
 type FormData = {
-    id:number
+    id: number
     text: string;
     completed: string;
 }
@@ -33,7 +33,7 @@ const style = {
 const ModalTasks = ({ open, handleClose, text, onClose, title }: ModalType) => {
 
     const { register, handleSubmit, reset, formState } = useForm<FormData>();
-    const {mutate}=usePostTasks()
+    const { mutate } = usePostTasks()
 
     const onSubmit = (data: FormData) => {
         mutate(data)
@@ -42,57 +42,96 @@ const ModalTasks = ({ open, handleClose, text, onClose, title }: ModalType) => {
     };
 
     return (
-        <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby={text}
-            aria-describedby="parent-modal-description"
-        >
-            <Box sx={{ ...style, width: 500 }}>
-                <h2 id="child-modal-title" className="text-center font-black text-3xl">{title}</h2>
-
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField
-                        label="text"
-                        fullWidth
-                        margin="normal"
-                        {...register("text", { required: "el input es requerido" })}
-                        error={!!formState.errors.text}
-                        helperText={formState.errors.text?.message}
-
-                    />
-                      <TextField
-                        label="Id"
-                        fullWidth
-                        margin="normal"
-                        {...register("id", { required: "el input es requerido" })}
-                        error={!!formState.errors.id}
-                        helperText={formState.errors.id?.message}
-                        type="number"
-
-                    />
-
-
-                    <TextField
-                        label="Estado"
-                        select
-                        fullWidth
-                        margin="normal"
-                        defaultValue="false"
-                        {...register("completed")}
+        <>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby={text}
+                aria-describedby="parent-modal-description"
+            >
+                <Box sx={{
+                    ...style,
+                    width: 500,
+                    background: "linear-gradient(1deg, #020617, #0f172a)",
+                    transform: "translate(-50%, -50%)",
+                    borderRadius: 4,
+                    boxShadow: "0 20px 60px rgba(0,0,0,0.7)",
+                    backdropFilter: "blur(12px)",
+                }}>
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            textAlign: "center",
+                            fontWeight: 800,
+                            color: "#e2e8f0",
+                            mb: 3
+                        }}
                     >
-                        <MenuItem value={true}>True</MenuItem>
-                        <MenuItem value={false}>False</MenuItem>
-                    </TextField>
+                        {title}
+                    </Typography>
 
-                    <Button type="submit" variant="contained" >
-                        Guardar
-                    </Button>
-                </form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <TextField
+                            label="text"
+                            fullWidth
+                            margin="normal"
+                            {...register("text", { required: "el input es requerido" })}
+                            error={!!formState.errors.text}
+                            helperText={formState.errors.text?.message}
+                            InputProps={{
+                                style: { color: "white" }
+                            }}
+                            InputLabelProps={{
+                                style: { color: "#94a3b8" }
+                            }}
 
-                <Button onClick={onClose}>Close Child Modal</Button>
-            </Box>
-        </Modal>
+
+                        />
+                        <TextField
+                            label="Id"
+                            fullWidth
+                            margin="normal"
+                            {...register("id", { required: "el input es requerido" })}
+                            error={!!formState.errors.id}
+                            helperText={formState.errors.id?.message}
+                            type="number"
+                            InputProps={{
+                                style: { color: "white" }
+                            }}
+                            InputLabelProps={{
+                                style: { color: "#94a3b8" }
+                            }}
+
+                        />
+
+
+                        <TextField
+                            label="Estado"
+                            select
+                            fullWidth
+                            margin="normal"
+                            defaultValue="false"
+                            {...register("completed")}
+                            InputProps={{
+                                style: { color: "white" }
+                            }}
+                            InputLabelProps={{
+                                style: { color: "#94a3b8" }
+                            }}
+                        >
+                            <MenuItem value={true}>True</MenuItem>
+                            <MenuItem value={false}>False</MenuItem>
+                        </TextField>
+                        <div className="gap-5">
+                            <Button type="submit" variant="contained" sx={{}}>
+                                Guardar
+                            </Button>
+                            <Button onClick={onClose}>Close Child Modal</Button>
+                        </div>
+                    </form>
+                </Box>
+            </Modal >
+        </>
     )
 }
 
