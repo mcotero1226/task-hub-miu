@@ -46,14 +46,9 @@
   ],
   "task": [
     {
-      "id": "1",
-      "text": "Aprender React Query",
-      "completed": false
-    },
-    {
       "id": "2",
       "text": "Hacer ejercicio",
-      "completed": true
+      "completed": false
     },
     {
       "id": "3",
@@ -61,13 +56,13 @@
       "completed": false
     },
     {
-      "id": "BI68q2EURyA",
-      "text": "dasdasdasd",
-      "completed": true
-    },
-    {
       "id": "gmQMUe3hqgU",
       "text": "bañar a caty",
+      "completed": false
+    },
+    {
+      "id": "70wyvcq7fvM",
+      "text": "casar la ropa",
       "completed": false
     }
   ],
