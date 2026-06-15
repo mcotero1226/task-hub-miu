@@ -3,7 +3,7 @@ import { useQueryClient, useMutation } from "@tanstack/react-query";
 const useDeleteTasks = () => {
     const queryClient = useQueryClient()
 
-    const fechDeleteTasks = async (id:number) => {
+    const fechDeleteTasks = async (id: number | string) => {
         const dataTasks = await fetch(`http://localhost:3001/task/${id}`, {
             method: 'DELETE',
         })
@@ -12,13 +12,13 @@ const useDeleteTasks = () => {
         }
         return dataTasks.json()
     }
-    const {mutate}=useMutation({
-        mutationFn:fechDeleteTasks,
-        onSuccess:()=>queryClient.invalidateQueries({
-            queryKey:['task']
+    const { mutate } = useMutation({
+        mutationFn: fechDeleteTasks,
+        onSuccess: () => queryClient.invalidateQueries({
+            queryKey: ['task']
         })
 
     })
-    return{mutate}
+    return { mutate }
 }
 export { useDeleteTasks }

@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 export type CuentaType = {
     name: string | never;
     gmail: string;
-    password:string
+    password: string;
+    estado?: string | undefined
 };
 const CuentaPerfileGet = () => {
 
@@ -15,12 +16,12 @@ const CuentaPerfileGet = () => {
 
         return dataCuenta.json();
     };
-     const { data, isLoading, isError } = useQuery({
+    const { data, isLoading, isError } = useQuery({
         queryKey: ['cuenta'],
         queryFn: fechDataCuesta
     });
 
-    return { data,isLoading,isError };
+    return { data, isLoading, isError };
 };
 
 export { CuentaPerfileGet };

@@ -1,69 +1,110 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Mateo Cardenas",
-      "email": "mateo@email.com",
-      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=1",
-      "status": "active"
-    },
-    {
-      "id": "2",
-      "name": "Juan Perez",
-      "email": "juan@email.com",
-      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=2",
-      "status": "inactive"
-    },
-    {
-      "id": "3",
-      "name": "Maria Lopez",
-      "email": "maria@email.com",
-      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=3",
-      "status": "follow"
-    },
-    {
-      "id": "4",
-      "name": "Carlos Ruiz",
-      "email": "carlos@email.com",
-      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=4",
-      "status": "active"
-    },
-    {
-      "id": "5",
-      "name": "Ana Torres",
-      "email": "ana@email.com",
-      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=5",
-      "status": "inactive"
-    }
-  ],
   "cuenta": [
     {
       "name": "asdasdasdasdasdasdasd",
       "gmail": "asdasd",
       "Password": "asdasd",
-      "id": "BKhSD9HaULk"
+      "id": "BKhSD9HaULk",
+      "estado": "Activo"
     }
   ],
   "task": [
     {
-      "id": "2",
-      "text": "Hacer ejercicio",
+      "id": "ZMTZ_0LQsPY",
+      "text": "asdasd",
+      "completed": true
+    },
+    {
+      "id": "_iVYXgxBfAQ",
+      "text": "asdasdasd",
+      "completed": true
+    },
+    {
+      "id": "ouL5G4A_fCQ",
+      "text": "dsad",
+      "completed": true
+    },
+    {
+      "id": "uA-CmukRDhc",
+      "text": "asdasd",
       "completed": false
+    },
+    {
+      "id": "UQ0X4KfUqnk",
+      "text": "mateo cardenas ",
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Daniel Rojas",
+      "username": "danielr",
+      "email": "daniel@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=6",
+      "city": "Medellín",
+      "interests": [
+        "tech",
+        "gaming"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Valentina Castro",
+      "username": "valec",
+      "email": "valentina@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=7",
+      "city": "Bogotá",
+      "interests": [
+        "design",
+        "art"
+      ],
+      "text": {
+        "text": "asdasdasd",
+        "id": "2",
+        "completed": "false"
+      }
     },
     {
       "id": "3",
-      "text": "Terminar proyecto",
-      "completed": false
+      "name": "Sebastián Herrera",
+      "username": "sebash",
+      "email": "sebastian@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=8",
+      "city": "Medellín",
+      "interests": [
+        "tech",
+        "cars"
+      ],
+      "text": {
+        "text": "fssdfsdfsfsfsfsfffffffffffffffffffffffff",
+        "id": "1",
+        "completed": "false"
+      }
     },
     {
-      "id": "gmQMUe3hqgU",
-      "text": "bañar a caty",
-      "completed": false
+      "id": "4",
+      "name": "Camila Torres",
+      "username": "camilat",
+      "email": "camila@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=9",
+      "city": "Cali",
+      "interests": [
+        "fitness",
+        "travel"
+      ]
     },
     {
-      "id": "70wyvcq7fvM",
-      "text": "casar la ropa",
-      "completed": false
+      "id": "5",
+      "name": "Mateo Vargas",
+      "username": "mateov",
+      "email": "mateo@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=10",
+      "city": "Medellín",
+      "interests": [
+        "cars",
+        "music"
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

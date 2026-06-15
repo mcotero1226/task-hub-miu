@@ -1,16 +1,16 @@
 import { Modal, Box, Button, TextField, MenuItem, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { usePostTasks } from "../hooks/useposttasks";
 
 type ModalType = {
     open: boolean,
-    onClose: Function;
     text: string;
-    handleClose: Function;
     title: string;
+    onClose: () => void;
+    buttonFrom: (data: TaskFormData) => void;
+
 }
 
-type FormData = {
+export type TaskFormData = {
     id: number
     text: string;
     completed: string;
@@ -30,22 +30,17 @@ const style = {
     pb: 3,
 };
 
-const ModalTasks = ({ open, handleClose, text, onClose, title }: ModalType) => {
+const ModalTasks = ({ open, text, onClose, title, buttonFrom }: ModalType) => {
 
-    const { register, handleSubmit, reset, formState } = useForm<FormData>();
-    const { mutate } = usePostTasks()
+    const { register, handleSubmit, formState } = useForm<TaskFormData>();
 
-    const onSubmit = (data: FormData) => {
-        mutate(data)
-        console.log(data);
-        reset();
-    };
+
 
     return (
         <>
             <Modal
                 open={open}
-                onClose={handleClose}
+                onClose={onClose}
                 aria-labelledby={text}
                 aria-describedby="parent-modal-description"
             >
@@ -70,7 +65,7 @@ const ModalTasks = ({ open, handleClose, text, onClose, title }: ModalType) => {
                         {title}
                     </Typography>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(buttonFrom)}>
                         <TextField
                             label="text"
                             fullWidth
@@ -119,8 +114,8 @@ const ModalTasks = ({ open, handleClose, text, onClose, title }: ModalType) => {
                                 style: { color: "#94a3b8" }
                             }}
                         >
-                            <MenuItem value={true}>True</MenuItem>
-                            <MenuItem value={false}>False</MenuItem>
+                            <MenuItem value="true">True</MenuItem>
+                            <MenuItem value="false">False</MenuItem>
                         </TextField>
                         <div className="gap-5">
                             <Button type="submit" variant="contained" sx={{}}>

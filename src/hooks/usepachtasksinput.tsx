@@ -1,28 +1,28 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { tasksTye } from "./usegettasks";
 
-const useCompleteTask = () => {
+type PatchTask = {
+    id: number | string;
+    text: string;
+};
+
+const usePaschInput = () => {
     const queryClient = useQueryClient();
 
-    const fetchCompleteTask = async (task: tasksTye) => {
-        const completed = task.completed === true || task.completed === "true";
-        const res = await fetch(`http://localhost:3001/task/${task.id}`, {
+    const fechPaschInput = async ({ id, text }: PatchTask) => {
+        const res = await fetch(`http://localhost:3001/task/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                completed: !completed
-            })
+            body: JSON.stringify({ text:text })
         });
 
         if (!res.ok) throw new Error("Error al actualizar tarea");
-
         return res.json();
     };
 
     const { mutate } = useMutation({
-        mutationFn: fetchCompleteTask,
+        mutationFn: fechPaschInput,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["task"] });
         }
@@ -31,4 +31,4 @@ const useCompleteTask = () => {
     return { mutate };
 };
 
-export { useCompleteTask };
+export { usePaschInput };

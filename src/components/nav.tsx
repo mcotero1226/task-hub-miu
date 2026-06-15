@@ -50,6 +50,7 @@ const PrimarySearchAppBar = () => {
         setNavigationMenu(null);
         navegate('tasks')
     };
+
     const next = () => {
         localStorage.removeItem('register')
         navegate('/')
@@ -60,10 +61,17 @@ const PrimarySearchAppBar = () => {
         setNavigationMenu(null);
         navegate('/')
     };
+
     const handleNavMenuClosestatistics = () => {
         setNavigationMenu(null);
         navegate('/statistics')
     };
+
+    const handleUsersList = () => {
+        setNavigationMenu(null);
+        navegate('/users')
+    };
+    
     const renderNavMenu = (
         <Menu
             anchorEl={navigationMenu}
@@ -79,20 +87,29 @@ const PrimarySearchAppBar = () => {
             }}
         >
             <MenuItem onClick={handleNavMenuClose}>Tasks</MenuItem>
-            <MenuItem onClick={handleNavMenuCloseinicio}>start</MenuItem>
-            <MenuItem onClick={handleNavMenuClosestatistics}>statistics</MenuItem>
+            <MenuItem onClick={handleNavMenuCloseinicio}>Start</MenuItem>
+            <MenuItem onClick={handleNavMenuClosestatistics}>Statistics</MenuItem>
+            <MenuItem onClick={handleUsersList}>UsersList</MenuItem>
+
 
         </Menu>
     );
 
     const renderMenu = (
         <Menu
+            PaperProps={{
+                sx: {
+                    backgroundColor: 'black',
+                    color: 'white',
+                    textAlign: 'center',
+                }
+            }}
             anchorEl={anchorEl}
             open={isMenuOpen}
             onClose={handleMenuCloseProfile}
         >
             <MenuItem onClick={handleMenuCloseProfile}>Profile</MenuItem>
-        </Menu>
+        </Menu >
     );
 
     const renderMobileMenu = (
@@ -151,14 +168,9 @@ const PrimarySearchAppBar = () => {
                     <Box sx={{ flexGrow: 1 }} />
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        
                         <IconButton size="large" color="inherit">
-                            <Badge badgeContent={4} color="error">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-
-                        <IconButton size="large" color="inherit">
-                            <Badge badgeContent={17} color="error">
+                            <Badge badgeContent={11} color="error">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>

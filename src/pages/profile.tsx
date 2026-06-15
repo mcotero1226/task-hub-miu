@@ -22,6 +22,7 @@ const Profile = () => {
     }
 
     const user = data?.[0];
+    console.log(data)
 
     return (
         <Box
@@ -63,13 +64,18 @@ const Profile = () => {
 
                 <Typography
                     variant="caption"
+                    variant="body2"
                     sx={{
-                        backgroundColor: "#e0e0e0",
+                        backgroundColor:user?.estado ? 'white': "blue",
                         padding: "10px",
                         borderRadius: "12px",
+                        
+                        
+                        
+
                     }}
                 >
-                    Usuario activo
+                    ✅{user?.estado}
                 </Typography>
             </Paper>
         </Box>
